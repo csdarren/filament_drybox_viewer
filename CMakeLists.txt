@@ -7,4 +7,4 @@ project(drybox_temp)
 
 ### This went into main/ before, moved it here so I could have idf_component.yml in root instead of main/
 
-add_compile_options(-Wno-format)
+# add_compile_options(-Wno-format)
