@@ -1,3 +1,2 @@
 dependencies:
   espressif/aht20: ^2.0.0
-  espressif/ssd1306: ^1.0.5~1
