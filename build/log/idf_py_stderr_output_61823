@@ -1,0 +1,7 @@
+Command: cmake -G Ninja -DPYTHON_DEPS_CHECKED=1 -DPYTHON=/home/dhall/.espressif/python_env/idf5.5_py3.12_env/bin/python -DESP_PLATFORM=1 -DCCACHE_ENABLE=0 /home/dhall/dev/drybox_temp
+CMake Error at /opt/esp-idf/tools/cmake/component.cmake:384 (message):
+  Failed to resolve component 'lvgl__lvgl'
+Call Stack (most recent call first):
+  CMakeLists.txt:9 (idf_component_get_property)
+
+
