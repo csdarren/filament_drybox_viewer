@@ -5,14 +5,19 @@
 #include "esp_lvgl_port.h"
 #define SSD1306_HPP
 
-#define SSD1306_ADDR 0x3C
 #define SSD1306_H_RES 128
 #define SSD1306_V_RES 64
 #define SSD1306_SCL_SPEED_HZ 400000
 
+#define SSD1306_ADDR_0 0x3C
+#define SSD1306_ADDR_1 0x3D
+#define SSD1306_H_RES 128
+#define SSD1306_V_RES 64
+
 class SSD1306_LVGL {
   private:
     i2c_master_bus_handle_t i2c_bus = {};
+    int i2c_addr{};
 
     esp_lcd_panel_io_handle_t io_handle = nullptr;
     esp_lcd_panel_handle_t panel_handle = nullptr;
@@ -28,7 +33,7 @@ class SSD1306_LVGL {
         return false;
     }
     auto display_io_cfg() -> void {
-        io_cfg.dev_addr = SSD1306_ADDR;
+        io_cfg.dev_addr = i2c_addr;
         io_cfg.control_phase_bytes = 1; // typical for SSD1306
         io_cfg.lcd_cmd_bits = 8;
         io_cfg.lcd_param_bits = 8;
@@ -72,12 +77,15 @@ class SSD1306_LVGL {
     }
 
   public:
-    SSD1306_LVGL(i2c_master_bus_handle_t i2c_bus_handle) : i2c_bus(i2c_bus_handle) {
+    SSD1306_LVGL(i2c_master_bus_handle_t i2c_bus_handle, int dev_addr) : i2c_bus(i2c_bus_handle), i2c_addr(dev_addr) {
         display_io_cfg();
         display_panel_cfg();
         display_prepare();
         display_lvgl_cfg();
         input_output_setup();
+    }
+    auto get_lvgl_disp() -> lv_obj_t * {
+        return lv_disp_get_scr_act(lvgl_display);
     }
 };
 
