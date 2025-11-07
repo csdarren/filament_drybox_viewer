@@ -1,2 +1,2 @@
 dependencies:
-  espressif/aht20: ^2.0.0
+  espressif/esp_lvgl_port: "*"

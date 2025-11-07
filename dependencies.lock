@@ -1,52 +1,31 @@
 dependencies:
-  espressif/aht20:
-    component_hash: 76e613c248fd7533483e592f995a72dbefadf396447a2e3570645b3da80abb7c
+  espressif/esp_lvgl_port:
+    component_hash: bfb2778c063b05a6c47c1a8de6d166ee4d911bc86fe0b3ff9e6bab06d2812033
     dependencies:
-    - name: espressif/cmake_utilities
-      registry_url: https://components.espressif.com
-      require: private
-      version: '*'
-    - name: espressif/i2c_bus
-      registry_url: https://components.espressif.com
-      require: public
-      version: ^1.4.0
     - name: idf
       require: private
-      version: '>=4.3'
+      version: '>=5.1'
+    - name: lvgl/lvgl
+      registry_url: https://components.espressif.com
+      require: public
+      version: '>=8,<10'
     source:
       registry_url: https://components.espressif.com/
       type: service
-    version: 2.0.0
-  espressif/cmake_utilities:
-    component_hash: 05165f30922b422b4b90c08845e6d449329b97370fbd06309803d8cb539d79e3
-    dependencies:
-    - name: idf
-      require: private
-      version: '>=4.1'
-    source:
-      registry_url: https://components.espressif.com
-      type: service
-    version: 1.1.1
-  espressif/i2c_bus:
-    component_hash: 4e990dc11734316186b489b362c61d41f23f79d58bc169795cec215e528cba14
-    dependencies:
-    - name: espressif/cmake_utilities
-      registry_url: https://components.espressif.com
-      require: private
-      version: '*'
-    - name: idf
-      require: private
-      version: '>=4.0'
-    source:
-      registry_url: https://components.espressif.com
-      type: service
-    version: 1.5.0
+    version: 2.6.2
   idf:
     source:
       type: idf
     version: 5.5.0
+  lvgl/lvgl:
+    component_hash: 17e68bfd21f0edf4c3ee838e2273da840bf3930e5dbc3bfa6c1190c3aed41f9f
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 9.4.0
 direct_dependencies:
-- espressif/aht20
-manifest_hash: c2a81b2c482a5547c761f2f402c9d456743bd04df1e31aac7c7976ac0d99ad7c
+- espressif/esp_lvgl_port
+manifest_hash: 805c8c5407c908ed0ec2ff21fa2647d355d9c570ad9cb982a0ff623a49f99c87
 target: esp32
 version: 2.0.0
